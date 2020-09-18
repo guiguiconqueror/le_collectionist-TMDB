@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nuxt-link :to="{ path: `/movies/${media.id}` }" class="link">
+    <nuxt-link :to="{ path: `/info/movies/${media.id}` }" class="link">
       <div class="background-div"></div>
       <v-row class="overlay-row" justify="center" >
           <v-col cols="7" sm="8" md="9" align-self="start">
