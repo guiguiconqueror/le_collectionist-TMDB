@@ -1,12 +1,14 @@
 <template>
   <v-app-bar class="app-bar">
     <v-container fluid>
-      <v-row align="center" class="d-none d-md-flex pl-4" justify="center">
+      <v-row align="center" class="d-md-flex pl-4" justify="center">
           <nuxt-link to="/" class="site-name">
             <div class="logo-frame">
               <span class="logo-helper"></span><img src="~/assets/logo.svg" width="100" class="logo"><img>
             </div>
           </nuxt-link>
+        <v-col cols="6">
+        </v-col>
       </v-row>
     </v-container>
   </v-app-bar>
@@ -26,6 +28,7 @@ export default {
 .app-bar {
   background-color: #121212 !important;
   color: white;
+  max-height: 64px;
 }
 .site-name {
   color: #E50914 !important;
