@@ -22,6 +22,9 @@
                 <span class="movie-director-name">{{storeMovie.crew.director.name}}</span>
               </div>
             </v-col>
+            <v-col cols="4" align-self="start">
+              <AddWatchlistIcon class="pt-3 ml-8" />
+            </v-col>
           </v-row>
         </v-container>
       </v-container>
@@ -31,11 +34,13 @@
 
 <script>
 import Overview from '@/components/infoPages/Overview.vue'
+import AddWatchlistIcon from '@/components/buttons/AddWatchlistIcon.vue'
 
 export default {
   name: 'Movie',
   components: {
-    Overview
+    Overview,
+    AddWatchlistIcon
   },
   computed: {
     storeMovie() {

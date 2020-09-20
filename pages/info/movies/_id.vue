@@ -37,7 +37,6 @@ export default {
         const credits = await this.$axios.$get(`https://api.themoviedb.org/3/movie/${this.movieId}/credits?api_key=${process.env.apikey}`)
         this.cast = credits.cast.slice(0, 24)
         const director = credits.crew.find(crew => crew.job === "Director") || {}
-        console.log(director)
           if (director) this.crew["director"] = director
       } catch(err) {
         // console.log(err)

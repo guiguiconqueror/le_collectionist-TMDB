@@ -9,6 +9,8 @@
           </nuxt-link>
         <v-col cols="6">
         </v-col>
+        <v-divider vertical inset></v-divider>
+         <Watchlist class="watchlist-button" />
       </v-row>
     </v-container>
   </v-app-bar>
@@ -16,12 +18,24 @@
 
 <script>
 
+import Watchlist from '@/components/navigation/Watchlist.vue'
+
 export default {
-  name: 'Navbar'
+  name: 'Navbar',
+  components: [
+    Watchlist
+  ]
 }
 </script>
 
 <style>
+.v-divider--vertical.v-divider--inset {
+  margin-bottom: 8px;
+}
+button.watchlist-button.d-none.d-md-block.v-btn.v-btn--depressed.theme--dark.v-size--default {
+  margin-left: 10px;
+}
+
 </style>
 
 <style scoped>
