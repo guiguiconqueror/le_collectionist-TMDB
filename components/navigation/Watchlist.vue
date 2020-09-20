@@ -32,7 +32,7 @@
           <v-icon v-else size="40" color="grey darken-2">mdi-video-image</v-icon>
         </v-avatar>
         <v-list-item-content>
-          <nuxt-link :to="{ path: `/info/${determineMediaType(watchlistMedia)}/${watchlistMedia.id}` }" class="watchlist-media-link">
+          <nuxt-link :to="{ path: `/info/movies/${watchlistMedia.id}` }" class="watchlist-media-link">
             <v-list-item-title class="watchlist-media-title">{{ watchlistMedia.title || watchlistMedia.name }}</v-list-item-title>
           </nuxt-link>
           <v-list-item-subtitle class="watchlist-rating">
@@ -47,7 +47,7 @@
       </v-list-item>
 
       <v-list-item v-if="watchlist.length">
-        <v-btn small block class="watchlist-more-button">Plus</v-btn>
+        <v-btn to="/watchlist" small block class="watchlist-more-button">Voir Plus</v-btn>
       </v-list-item>
 
     </v-list>
@@ -74,9 +74,6 @@ export default {
         const date = media.first_air_date.toString()
         return date.slice(0, 4)
       }
-    },
-    determineMediaType(media) {
-      return media.first_air_date || media.last_air_date ? "tv" : "movies"
     }
   }
 }

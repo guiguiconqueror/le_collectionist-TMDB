@@ -5,9 +5,13 @@
     </v-container>
     <BannerCarousel :movies="topMovies" />
     <v-container>
-      <h3 class="heading">Les films les plus populaires</h3>
+      <h3 class="heading">Les Films les plus populaires</h3>
     </v-container>
     <BannerCarousel :movies="popularMovies" />
+    <v-container>
+      <h3 class="heading">Bientôt disponibles</h3>
+    </v-container>
+    <BannerCarousel :movies="upcomingMovies" />
   </div>
 </template>
 
@@ -22,6 +26,7 @@ export default {
     return {
       popularMovies: [],
       topMovies: [],
+      upcomingMovies: [],
       watchList: []
     };
   },
@@ -37,11 +42,15 @@ export default {
         `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.apikey}&language=en-US&page=1`
       );
       this.topMovies = movies.results;
-    }
+    },
+    async getUpcomingMovies() {
+      const movies = await this.$axios.$get(`https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.apikey}&language=en-US&page=1`)
+      this.upcomingMovies = movies.results
+    },
   },
 
   created() {
-    Promise.all([this.getTopMovies(), this.getPopularMovies()]);
+    Promise.all([this.getTopMovies(), this.getPopularMovies(), this.getUpcomingMovies()]);
   }
 };
 </script>
