@@ -22,11 +22,8 @@
 </template>
 
 <script>
-import Watchlist from "@/components/navigation/Watchlist.vue";
-
 export default {
-  name: "Navbar",
-  components: [Watchlist]
+  name: "Navbar"
 };
 </script>
 

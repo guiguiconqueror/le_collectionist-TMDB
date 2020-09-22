@@ -33,15 +33,8 @@
 </template>
 
 <script>
-import Overview from '@/components/infoPages/Overview.vue'
-import AddWatchlistIcon from '@/components/buttons/AddWatchlistIcon.vue'
-
 export default {
   name: 'Movie',
-  components: {
-    Overview,
-    AddWatchlistIcon
-  },
   computed: {
     storeMovie() {
       return this.$store.state.media.media

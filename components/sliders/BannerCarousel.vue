@@ -16,8 +16,6 @@
 </template>
 
 <script>
-import BannerOverlay from '@/components/generals/BannerOverlay.vue'
-
 export default {
   name: 'BannerCarousel',
   props: {
@@ -25,9 +23,6 @@ export default {
       type: Array,
       required: true
     }
-  },
-  components: {
-    BannerOverlay
   },
   computed: {
     bannerSize() {

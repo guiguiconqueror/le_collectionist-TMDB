@@ -5,13 +5,8 @@
 </template>
 
 <script>
-import Movie from '@/components/infoPages/pages/Movie.vue'
-
 export default {
   name: 'MoviePage',
-  components: {
-    Movie
-  },
   data () {
     return {
       loaded: false,

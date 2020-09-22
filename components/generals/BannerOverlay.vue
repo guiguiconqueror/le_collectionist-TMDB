@@ -21,21 +21,12 @@
 </template>
 
 <script>
-import AddWatchlistButton from "@/components/buttons/AddWatchlistButton.vue";
-
 export default {
   name: "BannerOverlay",
-  components: {
-    AddWatchlistButton
-  },
   props: {
     media: {
       type: Object,
       required: true
-    },
-    keyword: {
-      type: String,
-      required: false
     }
   }
 };

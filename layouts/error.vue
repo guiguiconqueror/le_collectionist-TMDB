@@ -15,12 +15,6 @@
 <script>
 export default {
   layout: 'empty',
-  props: {
-    error: {
-      type: Object,
-      default: null
-    }
-  },
   data () {
     return {
       pageNotFound: '404 Not Found',

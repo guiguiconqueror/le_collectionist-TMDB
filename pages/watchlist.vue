@@ -73,7 +73,6 @@
 
 <script>
 import { mapState, mapActions } from "vuex";
-import AddWatchlistButton from '@/components/buttons/AddWatchlistButton'
 
 export default {
   name: "Watchlist",
@@ -92,10 +91,7 @@ export default {
         return date.slice(0, 4);
       }
     }
-  },
-    components: {
-    AddWatchlistButton
-  },
+  }
 };
 </script>
 

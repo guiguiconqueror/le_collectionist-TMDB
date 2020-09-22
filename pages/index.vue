@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-container>
-      <h3 class="heading">Les Meilleures Films</h3>
+      <h3 class="heading">Les Meilleurs Films</h3>
     </v-container>
     <BannerCarousel :movies="topMovies" />
     <v-container>
@@ -16,41 +16,26 @@
 </template>
 
 <script>
-import BannerCarousel from "@/components/sliders/BannerCarousel.vue";
 
 export default {
-  components: {
-    BannerCarousel
-  },
-  data() {
-    return {
-      popularMovies: [],
-      topMovies: [],
-      upcomingMovies: [],
-      watchList: []
-    };
-  },
-  methods: {
-    async getPopularMovies() {
-      const movies = await this.$axios.$get(
-        `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.apikey}&language=en-US&page=1`
-      );
-      this.popularMovies = movies.results;
-    },
-    async getTopMovies() {
-      const movies = await this.$axios.$get(
-        `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.apikey}&language=en-US&page=1`
-      );
-      this.topMovies = movies.results;
-    },
-    async getUpcomingMovies() {
-      const movies = await this.$axios.$get(`https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.apikey}&language=en-US&page=1`)
-      this.upcomingMovies = movies.results
-    },
-  },
+  async asyncData({app}) {
+    const popularMovies = await app.$axios.$get(
+      `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.apikey}&language=en-US&page=1`
+    ).then(response => {
+      return response.results
+    });
 
-  created() {
-    Promise.all([this.getTopMovies(), this.getPopularMovies(), this.getUpcomingMovies()]);
-  }
+    const topMovies = await app.$axios.$get(
+      `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.apikey}&language=en-US&page=1`
+    ).then(response => {
+      return response.results
+    });
+
+    const upcomingMovies = await app.$axios.$get(`https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.apikey}&language=en-US&page=1`
+    ).then(response => {
+      return response.results
+    });
+    return {popularMovies, topMovies, upcomingMovies}
+  },
 };
 </script>

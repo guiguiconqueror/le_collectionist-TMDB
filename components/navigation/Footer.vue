@@ -1,7 +1,7 @@
 <template>
   <v-footer padless class="footer">
       <v-card flat class="footer-card">
-        <v-btn icon large class="footer-icon" v-for="icon in icons" :href="icon.url" target="_blank">
+        <v-btn icon large class="footer-icon" v-for="(icon) in icons" :href="icon.url" target="_blank" :key="icon.url">
           <v-icon>{{icon.name}}</v-icon>
         </v-btn>
         <div class="link-div">
